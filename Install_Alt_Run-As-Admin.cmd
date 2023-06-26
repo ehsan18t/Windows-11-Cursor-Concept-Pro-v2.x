@@ -48,10 +48,7 @@ IF ERRORLEVEL 0 CALL :ERROR
 echo.
 
 @REM Installation Process
-cd "%WinDir%\Cursors"
-mkdir "Win11_%mode%_HD_Cursors"
-cd "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
-
+mkdir "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
 XCOPY /I /Y /E "%dest%\%mode%\regular\base" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
 DEL "%dest%\%mode%\regular\01. default\Install.inf"
 XCOPY /I /Y /E "%dest%\%mode%\regular\01. default" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
