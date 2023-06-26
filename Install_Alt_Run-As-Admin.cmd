@@ -38,12 +38,10 @@ SET "DL_Link=https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x
 SET "DL_Location=%desktop%\%asset%"
 Call :Any_Downloader
 echo.
-powershell -command "Expand-Archive -Path %desktop%\%asset% -DestinationPath %dest%"
+powershell -command "Expand-Archive -Path '%desktop%\%asset%' -DestinationPath '%dest%'"
 echo.
-cd "%desktop%"
 del %asset%
 echo.
-cd /d "%WinDir%\Cursors"
 echo.
 echo.
 echo     Please choose a cursor color:  
@@ -73,6 +71,9 @@ echo.
 echo.
 echo     Install Successful 
 echo.
+ECHO  ^=^> Press Any Key To Exit
+PAUSE >NUL 2>&1
+
 
 :DARK
 SET "mode=dark"
