@@ -44,7 +44,7 @@ echo.
 cd "%userprofile%\Desktop"
 del W11-CC-V2.2-HDPI-by-Jepri.zip
 echo.
-cd /d "C:\Windows\Cursors"
+cd /d "%WinDir%\Cursors"
 echo.
 echo.
 echo     Please choose a cursor color:  
@@ -57,80 +57,80 @@ set /p mode=   Choose a color (only one option to choose, no go back option):
 
 if %mode%==1 (
 echo.
-    cd C:\Windows\Cursors
+    cd %WinDir%\Cursors
     mkdir Win11_Light_HD_Cursors
-	cd C:\Windows\Cursors\Win11_Light_HD_Cursors
+	cd %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\alternate.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\alternate.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\beam.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\beam.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\01. default\busy.ani" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\01. default\busy.ani" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\dgn1.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\dgn1.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\dgn2.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\dgn2.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\handwriting.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\handwriting.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\help.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\help.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\horz.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\horz.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\link.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\link.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\move.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\move.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\person.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\person.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\pin.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\pin.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\pointer.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\pointer.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\precision.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\precision.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\unavailable.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\unavailable.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\vert.cur" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base\vert.cur" %WinDir%\Cursors\Win11_Light_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\01. default\working.ani" C:\Windows\Cursors\Win11_Light_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\01. default\working.ani" %WinDir%\Cursors\Win11_Light_HD_Cursors
 ) else if %mode%==2 (
-cd C:\Windows\Cursors\
+cd %WinDir%\Cursors\
     mkdir Win11_Dark_HD_Cursors
-	cd C:\Windows\Cursors\Win11_Dark_HD_Cursors
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\alternate.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+	cd %WinDir%\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\alternate.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\beam.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\beam.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\01. default\busy.ani" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\01. default\busy.ani" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\dgn1.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\dgn1.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\dgn2.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\dgn2.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\handwriting.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\handwriting.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\help.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\help.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\horz.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\horz.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\link.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\link.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\move.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\move.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\person.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\person.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\pin.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\pin.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\pointer.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\pointer.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\precision.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\precision.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\unavailable.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\unavailable.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\vert.cur" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base\vert.cur" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
-copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\01. default\working.ani" C:\Windows\Cursors\Win11_Dark_HD_Cursors
+copy "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\01. default\working.ani" %WinDir%\Cursors\Win11_Dark_HD_Cursors
 echo.
 pause
 ) else if %mode%==3 (
