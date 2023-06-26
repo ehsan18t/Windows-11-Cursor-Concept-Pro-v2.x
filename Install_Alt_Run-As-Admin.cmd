@@ -1,48 +1,36 @@
 @echo off
+SET "desktop=%userprofile%\Desktop"
+
 echo.
 echo    If your install.inf is not working, you can use this cmd as its alternative. (Windows)
 echo.
-echo    Wait, until the Git is installing...
-echo.
-setlocal
-
-set "git_exe=%ProgramFiles%\Git\bin\git.exe"
-
-if exist "%git_exe%" (
-echo.
-echo     Git is installed on this PC.
-echo.
-) else (
-    echo Git is not installed on this PC. Installing it now!
-	start cmd /c "winget install Git.Git"
-)
-
-endlocal
-pause
 
 Echo.
 Echo.
 echo    Downloading the 'Instructions.txt' file... Check your Downloads folder or Desktop.
 echo.
 echo.
-cd "%userprofile%\Desktop"
-curl -LJO https://gist.githubusercontent.com/PSGitHubUser1/8244f8a80ccc119c1d50f047a0af2170/raw/22516ac287ae5fc41b58d922f10af87aa6e14ca4/Instructions.txt
-%userprofile%\Desktop\Instructions.txt
+SET "DL_Link=https://gist.githubusercontent.com/PSGitHubUser1/8244f8a80ccc119c1d50f047a0af2170/raw/22516ac287ae5fc41b58d922f10af87aa6e14ca4/Instructions.txt"
+SET "DL_Location=%desktop%\Instructions.txt"
+Call :Any_Downloader
 echo. 
 echo.
 Echo    FOLLOW INSTRUCTIONS GIVEN IN "Instructions.txt"
 Echo.
 echo.
-cd "%userprofile%\Desktop"
 echo.
-mkdir W11-CC-V2.2-HDPI-by-Jepri
+SET "dest=%dest%"
+SET "asset=W11-CC-V2.2-HDPI-by-Jepri.zip"
+mkdir "%dest%"
 echo.
-curl -LJO  https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x/releases/download/v2.2pro_NEW/W11-CC-V2.2-HDPI-by-Jepri.zip
+SET "DL_Link=https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x/releases/download/v2.2pro_NEW/%asset%"
+SET "DL_Location=%desktop%\%asset%"
+Call :Any_Downloader
 echo.
-powershell -command "Expand-Archive -Path %userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri.zip -DestinationPath %userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri"
+powershell -command "Expand-Archive -Path %desktop%\%asset% -DestinationPath %dest%"
 echo.
-cd "%userprofile%\Desktop"
-del W11-CC-V2.2-HDPI-by-Jepri.zip
+cd "%desktop%"
+del %asset%
 echo.
 cd /d "%WinDir%\Cursors"
 echo.
@@ -61,9 +49,9 @@ if %mode%==1 (
     mkdir Win11_Light_HD_Cursors
     cd "%WinDir%\Cursors\Win11_Light_HD_Cursors"
 
-    XCOPY /I /Y /E "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\base" "%WinDir%\Cursors\Win11_Light_HD_Cursors"
-    DEL "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\01. default\Install.inf"
-    XCOPY /I /Y /E "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\light\regular\01. default" "%WinDir%\Cursors\Win11_Light_HD_Cursors"
+    XCOPY /I /Y /E "%dest%\light\regular\base" "%WinDir%\Cursors\Win11_Light_HD_Cursors"
+    DEL "%dest%\light\regular\01. default\Install.inf"
+    XCOPY /I /Y /E "%dest%\light\regular\01. default" "%WinDir%\Cursors\Win11_Light_HD_Cursors"
     echo.
     pause
 ) else if %mode%==2 (
@@ -72,9 +60,9 @@ if %mode%==1 (
     mkdir Win11_Dark_HD_Cursors
 	cd "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
 
-    XCOPY /I /Y /E "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\base" "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
-    DEL "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\01. default\Install.inf"
-    XCOPY /I /Y /E "%userprofile%\Desktop\W11-CC-V2.2-HDPI-by-Jepri\dark\regular\01. default" "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
+    XCOPY /I /Y /E "%dest%\dark\regular\base" "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
+    DEL "%dest%\dark\regular\01. default\Install.inf"
+    XCOPY /I /Y /E "%dest%\dark\regular\01. default" "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
     echo.
     pause
 ) else if %mode%==3 (
@@ -89,4 +77,40 @@ echo.
 echo     Install Successful 
 echo.
 
-:: THIS FILE IS STILL BEING CONSTRUCTED! (PRE-RELEASE)
+@REM :: THIS FILE IS STILL BEING CONSTRUCTED! (PRE-RELEASE)
+
+
+:Any_Downloader
+PowerShell -Command ^
+$ProgressPreference = 'SilentlyContinue';^
+$dlLink = \"%DL_Link%\";^
+$dlLocation = \"%DL_Location%\";^
+function downloadFile($url, $targetFile)^
+{^
+    $uri = New-Object \"System.Uri\" \"$url\";^
+    $request = [System.Net.HttpWebRequest]::Create($uri);^
+    $request.set_Timeout(15000);^
+    $response = $request.GetResponse();^
+    $totalLength = [System.Math]::Floor($response.get_ContentLength()/1024);^
+    $responseStream = $response.GetResponseStream();^
+    $targetStream = New-Object -TypeName System.IO.FileStream -ArgumentList $targetFile, Create;^
+    $buffer = new-object byte[] 10KB;^
+    $count = $responseStream.Read($buffer,0,$buffer.length);^
+    $downloadedBytes = $count;^
+    while ($count -gt 0)^
+    {^
+        [System.Console]::CursorLeft = 0;^
+        [System.Console]::Write(\"  >>   Downloaded {0}K of {1}K ({2}%%) <<   \", [System.Math]::Floor($downloadedBytes/1024), $totalLength, [System.Math]::Floor((($downloadedBytes/1024)/$totalLength)*100));^
+        $targetStream.Write($buffer, 0, $count);^
+        $count = $responseStream.Read($buffer,0,$buffer.length);^
+        $downloadedBytes = $downloadedBytes + $count;^
+    }^
+    $targetStream.Flush();^
+    $targetStream.Close();^
+    $targetStream.Dispose();^
+    $responseStream.Dispose();^
+}^
+downloadFile $dlLink $dlLocation;
+
+ECHO.
+EXIT /B
