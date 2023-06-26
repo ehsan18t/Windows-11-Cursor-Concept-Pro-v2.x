@@ -40,7 +40,7 @@ Call :Any_Downloader
 echo.
 powershell -command "Expand-Archive -Path '%desktop%\%asset%' -DestinationPath '%dest%'"
 echo.
-del %asset%
+del "%desktop%\%asset%"
 echo.
 echo.
 echo.
