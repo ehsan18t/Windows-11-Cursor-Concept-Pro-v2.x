@@ -69,6 +69,7 @@ echo     PLEASE NOW FOLLOW THE INSTRUCTIONS...
 echo.
 RMDIR /S /Q "%dest%" >nul
 notepad.exe "%desktop%\Instructions.txt"
+DEL "%desktop%\Instructions.txt"
 
 EXIT
 
