@@ -65,8 +65,12 @@ echo.
 echo.
 echo     Install Successful 
 echo.
-ECHO  ^=^> Press Any Key To Exit
-PAUSE >NUL 2>&1
+echo     PLEASE NOW FOLLOW THE INSTRUCTIONS...
+echo.
+RMDIR /S /Q "%dest%" >nul
+notepad.exe "%desktop%\Instructions.txt"
+
+EXIT
 
 
 :DARK
