@@ -28,17 +28,17 @@ Echo    FOLLOW INSTRUCTIONS GIVEN IN "Instructions.txt"
 Echo.
 echo.
 echo.
-SET "dest=%desktop%\W11-CC-V2.2-HDPI-by-Jepri"
-SET "asset=W11-CC-V2.2-HDPI-by-Jepri.zip"
-mkdir "%dest%"
+SET "downloaded_cursor=%desktop%\W11-CC-V2.2-HDPI-by-Jepri"
+SET "cursor_zip=W11-CC-V2.2-HDPI-by-Jepri.zip"
+mkdir "%downloaded_cursor%"
 echo.
-SET "DL_Link=https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x/releases/download/v2.2pro_NEW/%asset%"
-SET "DL_Location=%desktop%\%asset%"
+SET "DL_Link=https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x/releases/download/v2.2pro_NEW/%cursor_zip%"
+SET "DL_Location=%desktop%\%cursor_zip%"
 Call :Any_Downloader
 echo.
-powershell -command "Expand-Archive -Path '%desktop%\%asset%' -DestinationPath '%dest%'"
+powershell -command "Expand-Archive -Path '%desktop%\%cursor_zip%' -DestinationPath '%downloaded_cursor%'"
 echo.
-del "%desktop%\%asset%"
+del "%desktop%\%cursor_zip%"
 echo.
 echo.
 echo.
@@ -55,11 +55,11 @@ IF ERRORLEVEL 1 CALL :LIGHT
 
 echo.
 
-@REM Installation Process
+Installation Process
 mkdir "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
-XCOPY /I /Y /E "%dest%\%mode%\regular\base" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
-DEL "%dest%\%mode%\regular\01. default\Install.inf"
-XCOPY /I /Y /E "%dest%\%mode%\regular\01. default" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
+XCOPY /I /Y /E "%downloaded_cursor%\%mode%\regular\base" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
+DEL "%downloaded_cursor%\%mode%\regular\01. default\Install.inf"
+XCOPY /I /Y /E "%downloaded_cursor%\%mode%\regular\01. default" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
 
 echo.
 echo.
@@ -67,7 +67,7 @@ echo     Install Successful
 echo.
 echo     PLEASE NOW FOLLOW THE INSTRUCTIONS...
 echo.
-RMDIR /S /Q "%dest%" >nul
+RMDIR /S /Q "%downloaded_cursor%" >nul
 notepad.exe "%desktop%\Instructions.txt"
 DEL "%desktop%\Instructions.txt"
 
