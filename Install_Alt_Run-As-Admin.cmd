@@ -55,7 +55,7 @@ IF ERRORLEVEL 1 CALL :LIGHT
 
 echo.
 
-Installation Process
+@REM Installation Process
 mkdir "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
 XCOPY /I /Y /E "%downloaded_cursor%\%mode%\regular\base" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
 DEL "%downloaded_cursor%\%mode%\regular\01. default\Install.inf"
