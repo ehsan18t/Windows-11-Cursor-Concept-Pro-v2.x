@@ -30,7 +30,7 @@ Echo    FOLLOW INSTRUCTIONS GIVEN IN "Instructions.txt"
 Echo.
 echo.
 echo.
-SET "dest=%dest%"
+SET "dest=%desktop%\W11-CC-V2.2-HDPI-by-Jepri"
 SET "asset=W11-CC-V2.2-HDPI-by-Jepri.zip"
 mkdir "%dest%"
 echo.
