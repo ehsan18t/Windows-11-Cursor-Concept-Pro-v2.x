@@ -43,7 +43,6 @@ CHOICE /C:123 /N /M "Choose a color (only one option to choose, no go back optio
 IF ERRORLEVEL 3 EXIT
 IF ERRORLEVEL 2 CALL :DARK
 IF ERRORLEVEL 1 CALL :LIGHT
-IF ERRORLEVEL 0 CALL :ERROR
 
 echo.
 
@@ -69,11 +68,6 @@ EXIT /B
 SET "mode=light"
 EXIT /B
 
-:ERROR
-echo.
-echo Invalid option selected. Please choose either 1 or 2.
-echo.
-EXIT /B
 
 :Any_Downloader
 PowerShell -Command ^
