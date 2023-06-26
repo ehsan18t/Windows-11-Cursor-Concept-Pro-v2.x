@@ -52,44 +52,41 @@ echo       2. Dark color
 echo       3. Exit
 echo.
 echo.
-set /p mode=   Choose a color (only one option to choose, no go back option): 
+CHOICE /C:123 /N /M "Choose a color (only one option to choose, no go back option): "
+IF ERRORLEVEL 3 EXIT
+IF ERRORLEVEL 2 CALL :DARK
+IF ERRORLEVEL 1 CALL :LIGHT
+IF ERRORLEVEL 0 CALL :ERROR
 
-if %mode%==1 (
-    echo.
-    cd "%WinDir%\Cursors"
-    mkdir Win11_Light_HD_Cursors
-    cd "%WinDir%\Cursors\Win11_Light_HD_Cursors"
+echo.
 
-    XCOPY /I /Y /E "%dest%\light\regular\base" "%WinDir%\Cursors\Win11_Light_HD_Cursors"
-    DEL "%dest%\light\regular\01. default\Install.inf"
-    XCOPY /I /Y /E "%dest%\light\regular\01. default" "%WinDir%\Cursors\Win11_Light_HD_Cursors"
-    echo.
-    pause
-) else if %mode%==2 (
-    echo.
-    cd "%WinDir%\Cursors"
-    mkdir Win11_Dark_HD_Cursors
-	cd "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
+@REM Installation Process
+cd "%WinDir%\Cursors"
+mkdir "Win11_%mode%_HD_Cursors"
+cd "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
 
-    XCOPY /I /Y /E "%dest%\dark\regular\base" "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
-    DEL "%dest%\dark\regular\01. default\Install.inf"
-    XCOPY /I /Y /E "%dest%\dark\regular\01. default" "%WinDir%\Cursors\Win11_Dark_HD_Cursors"
-    echo.
-    pause
-) else if %mode%==3 (
-exit
-) else (
-    echo.
-    echo Invalid option selected. Please choose either 1 or 2.
-	echo.
-)
+XCOPY /I /Y /E "%dest%\%mode%\regular\base" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
+DEL "%dest%\%mode%\regular\01. default\Install.inf"
+XCOPY /I /Y /E "%dest%\%mode%\regular\01. default" "%WinDir%\Cursors\Win11_%mode%_HD_Cursors"
+
 echo.
 echo.
 echo     Install Successful 
 echo.
 
-@REM :: THIS FILE IS STILL BEING CONSTRUCTED! (PRE-RELEASE)
+:DARK
+SET "mode=dark"
+EXIT /B
 
+:LIGHT
+SET "mode=light"
+EXIT /B
+
+:ERROR
+echo.
+echo Invalid option selected. Please choose either 1 or 2.
+echo.
+EXIT /B
 
 :Any_Downloader
 PowerShell -Command ^
@@ -125,3 +122,6 @@ downloadFile $dlLink $dlLocation;
 
 ECHO.
 EXIT /B
+
+
+@REM :: THIS FILE IS STILL BEING CONSTRUCTED! (PRE-RELEASE)
