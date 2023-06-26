@@ -1,4 +1,13 @@
 @echo off
+
+FLTMC >NUL 2>&1 || (
+    ECHO  Please run this file as admin to continue...
+    ECHO.
+	ECHO  ^=^> Press Any Key To Exit
+    PAUSE >NUL 2>&1
+	EXIT
+)
+
 SET "desktop=%userprofile%\Desktop"
 
 echo.
