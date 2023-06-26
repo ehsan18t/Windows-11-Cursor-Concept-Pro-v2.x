@@ -57,6 +57,7 @@ set /p mode=   Choose a color (only one option to choose, no go back option):
 
 if %mode%==1 (
 echo.
+    cd C:\Windows\Cursors
     mkdir Win11_Light_HD_Cursors
 	cd C:\Windows\Cursors\Win11_Light_HD_Cursors
 echo.
