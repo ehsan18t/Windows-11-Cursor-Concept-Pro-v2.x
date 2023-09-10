@@ -9,11 +9,13 @@ FLTMC >NUL 2>&1 || (
 )
 
 SET "desktop=%userprofile%\Desktop"
+SET "downloaded_cursor=%desktop%\W11-CC-V2.2-HDPI-by-Jepri"
+SET "cursor_zip=W11-CC-V2.2-HDPI-by-Jepri.zip"
 
 echo.
 echo    If your install.inf is not working, you can use this cmd as its alternative. (Windows)
 echo.
-
+CALL :CleanUp
 Echo.
 Echo.
 echo    Downloading the 'Instructions.txt' file... Check your Downloads folder or Desktop.
@@ -28,8 +30,6 @@ Echo    FOLLOW INSTRUCTIONS GIVEN IN "Instructions.txt"
 Echo.
 echo.
 echo.
-SET "downloaded_cursor=%desktop%\W11-CC-V2.2-HDPI-by-Jepri"
-SET "cursor_zip=W11-CC-V2.2-HDPI-by-Jepri.zip"
 mkdir "%downloaded_cursor%"
 echo.
 SET "DL_Link=https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x/releases/download/v2.2pro_NEW/%cursor_zip%"
@@ -38,7 +38,6 @@ Call :Any_Downloader
 echo.
 powershell -command "Expand-Archive -Path '%desktop%\%cursor_zip%' -DestinationPath '%downloaded_cursor%'"
 echo.
-del "%desktop%\%cursor_zip%"
 echo.
 echo.
 echo.
@@ -70,9 +69,21 @@ echo.
 RMDIR /S /Q "%downloaded_cursor%" >nul
 notepad.exe "%desktop%\Instructions.txt"
 DEL "%desktop%\Instructions.txt"
+CALL :CleanUp
 
 EXIT
 
+
+:CleanUp
+IF EXIST "%desktop%\%cursor_zip%" (
+    ECHO  - Removing Cursor Zip File
+    DEL "%desktop%\%cursor_zip%"
+)
+IF EXIST "%downloaded_cursor%" (
+    ECHO  - Removing Cursor Folder
+    RMDIR /S /Q "%downloaded_cursor%"
+)
+EXIT /B
 
 :DARK
 SET "mode=dark"
