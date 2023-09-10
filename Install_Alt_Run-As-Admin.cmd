@@ -84,7 +84,7 @@ EXIT /B
 
 
 :Any_Downloader
-PowerShell -Command ^
+PowerShell -ExecutionPolicy Bypass -Command ^
 $ProgressPreference = 'SilentlyContinue';^
 $dlLink = \"%DL_Link%\";^
 $dlLocation = \"%DL_Location%\";^
