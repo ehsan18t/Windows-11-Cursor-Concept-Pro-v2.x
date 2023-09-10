@@ -36,7 +36,7 @@ SET "DL_Link=https://github.com/PSGitHubUser1/Windows-11-Cursor-Concept-Pro-v2.x
 SET "DL_Location=%desktop%\%cursor_zip%"
 Call :Any_Downloader
 echo.
-powershell -command "Expand-Archive -Path '%desktop%\%cursor_zip%' -DestinationPath '%downloaded_cursor%'"
+powershell -ExecutionPolicy Bypass -command "Expand-Archive -Path '%desktop%\%cursor_zip%' -DestinationPath '%downloaded_cursor%'"
 echo.
 echo.
 echo.
