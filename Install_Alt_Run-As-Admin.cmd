@@ -68,7 +68,6 @@ echo     PLEASE NOW FOLLOW THE INSTRUCTIONS...
 echo.
 RMDIR /S /Q "%downloaded_cursor%" >nul
 notepad.exe "%desktop%\Instructions.txt"
-DEL "%desktop%\Instructions.txt"
 CALL :CleanUp
 
 EXIT
